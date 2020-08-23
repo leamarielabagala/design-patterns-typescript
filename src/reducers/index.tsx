@@ -5,17 +5,19 @@ export const reducer = function(state = {}, action: IAction) {
   let newState
 
   switch (action.type) {
-    case AppEvents.SET_NAME: {
+    case AppEvents.FETCH_USER: {
       newState = {
         ...state,
-        name: action.payload,
+        user: action.payload,
+        post: null,
       };
       break;
     }
-    case AppEvents.SET_AGE: {
+    case AppEvents.FETCH_POST: {
       newState = {
         ...state,
-        age: action.payload,
+        post: action.payload,
+        user: null,
       };
       break;
     }

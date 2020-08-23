@@ -1,4 +1,4 @@
 export enum AppEvents {
-  SET_NAME = "APP/SET_NAME",
-  SET_AGE = "APP/SET_AGE",
+  FETCH_USER = 'FETCH_USER',
+  FETCH_POST = 'FETCH_POST',
 }

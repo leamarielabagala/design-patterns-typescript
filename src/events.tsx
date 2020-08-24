@@ -1,4 +1,4 @@
 export enum AppEvents {
-  FETCH_USER = 'FETCH_USER',
-  FETCH_POST = 'FETCH_POST',
+  LOAD_USERS = 'LOAD_USERS',
+  LOAD_POSTS = 'LOAD_POSTS',
 }

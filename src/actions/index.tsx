@@ -1,18 +1,17 @@
-import { AppEvents } from "../events";
+import { AppEvents } from '../events';
 import jsonPlaceholder from '../api/jsonPlaceholder';
+
 export interface IAction {
   type: string;
   payload: string | number;
 }
 
-export const getUser = (userId: number) => async (dispatch: any) => {
-  const { data: user } = await jsonPlaceholder.get(`/users/${userId}`);
-  const { data: posts } = await jsonPlaceholder.get(`/posts?userId=${userId}`);
-  dispatch({ type: AppEvents.FETCH_USER, payload: { ...user, posts } });
+export const loadUsers = () => async (dispatch: any) => {
+  const { data: users } = await jsonPlaceholder.get(`/users`);
+  dispatch({ type: AppEvents.LOAD_USERS, payload: users });
 };
 
-export const getPost = (postId: number) => async (dispatch: any) => {
-  const { data: post } = await jsonPlaceholder.get(`/posts/${postId}`);
-  const { data: user } = await jsonPlaceholder.get(`/users/${post.userId}`);
-  dispatch({ type: AppEvents.FETCH_POST, payload: { ...post, user } });
-};
+export const loadPosts = () => async (dispatch: any) => {
+  const { data: posts } = await jsonPlaceholder.get(`/posts`);
+  dispatch({ type: AppEvents.LOAD_POSTS, payload: posts });
+}
